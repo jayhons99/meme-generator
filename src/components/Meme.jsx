@@ -12,7 +12,7 @@ const Meme = () => {
           placeholder="...and take my money"
           className="--meme-input"
         ></input>
-        <button type="button">Get a new meme image 🖼</button>
+        <button type="button">Get a new meme image 😹</button>
       </form>
     </div>
   );
