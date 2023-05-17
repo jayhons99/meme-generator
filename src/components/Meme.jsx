@@ -2,12 +2,22 @@ import memeData from "../../memeData";
 import { useState } from "react";
 
 const Meme = () => {
-  const [imageUrl, setImageUrl] = useState("");
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "https://i.imgflip.com/1ur9b0.jpg",
+  });
+  // eslint-disable-next-line no-unused-vars
+  const [allMemeImages, setAllMemeImages] = useState(memeData);
+
   function generateImage() {
-    const arr = memeData.data.memes;
+    const arr = allMemeImages.data.memes;
     const randomIndex = Math.floor(Math.random() * arr.length);
     const newUrl = arr[randomIndex].url;
-    setImageUrl(newUrl);
+    setMeme((prev) => ({
+      ...prev,
+      randomImage: newUrl,
+    }));
   }
   return (
     <div className="--meme">
@@ -26,7 +36,8 @@ const Meme = () => {
           Get a new meme image 😹
         </button>
       </div>
-      <img className="--meme-image" src={imageUrl}></img>
+      <p>{`${meme.topText} ${meme.bottomText}`}</p>
+      <img className="--meme-image" src={meme.randomImage}></img>
     </div>
   );
 };
