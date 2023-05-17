@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@400;600;700&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -33,4 +37,35 @@ body {
   font-weight: 400;
   color: white;
   margin-right: 8px;
+}
+
+.--meme {
+  padding: 36px 10px;
+}
+
+.--meme-form {
+  display: grid;
+  grid-template: 40px 40px / 1fr 1fr;
+  gap: 17px;
+}
+
+.--meme-input {
+  font-family: "Karla", sans-serif;
+  border-radius: 5px;
+  border: 1px solid #d5d4d8;
+  text-indent: 5px;
+}
+.--meme-form > button {
+  grid-column: 1 / -1;
+  font-family: "Karla", sans-serif;
+  border-radius: 5px;
+  border: 1px solid #d5d4d8;
+  color: white;
+  background: linear-gradient(to right, #672280, #a626d3);
+}
+
+.--meme-form > button:hover {
+  cursor: pointer;
+  position: relative;
+  bottom: 5px;
 }
