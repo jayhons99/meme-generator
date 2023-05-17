@@ -41,6 +41,8 @@ body {
 
 .--meme {
   padding: 36px 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .--meme-form {
@@ -68,4 +70,9 @@ body {
   cursor: pointer;
   position: relative;
   bottom: 5px;
+}
+.--meme-image {
+  max-width: 75%;
+  align-self: center;
+  margin-top: 5rem;
 }
