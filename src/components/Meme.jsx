@@ -1,5 +1,4 @@
-import memeData from "../../memeData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Meme = () => {
   const [meme, setMeme] = useState({
@@ -8,12 +7,17 @@ const Meme = () => {
     randomImage: "https://i.imgflip.com/1ur9b0.jpg",
   });
   // eslint-disable-next-line no-unused-vars
-  const [allMemeImages, setAllMemeImages] = useState(memeData);
+  const [allMemes, setAllMemes] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((res) => res.json())
+      .then((data) => setAllMemes(data.data.memes));
+  }, []);
 
   function generateImage() {
-    const arr = allMemeImages.data.memes;
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    const newUrl = arr[randomIndex].url;
+    const randomIndex = Math.floor(Math.random() * allMemes.length);
+    const newUrl = allMemes[randomIndex].url;
     setMeme((prev) => ({
       ...prev,
       randomImage: newUrl,
